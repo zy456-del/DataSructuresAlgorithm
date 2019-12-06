@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace suanfa1
+namespace suanfa
 {
     class Program
     {
