@@ -1,0 +1,10 @@
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\bin\Debug\netcoreapp3.0\Chicken.exe
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\bin\Debug\netcoreapp3.0\Chicken.deps.json
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\bin\Debug\netcoreapp3.0\Chicken.runtimeconfig.json
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\bin\Debug\netcoreapp3.0\Chicken.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\bin\Debug\netcoreapp3.0\Chicken.dll
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\bin\Debug\netcoreapp3.0\Chicken.pdb
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\obj\Debug\netcoreapp3.0\Chicken.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\obj\Debug\netcoreapp3.0\Chicken.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\obj\Debug\netcoreapp3.0\Chicken.dll
+C:\Users\Administrator\source\repos\zy456-del\DataSructuresAlgorithm\Chicken\Chicken\obj\Debug\netcoreapp3.0\Chicken.pdb
