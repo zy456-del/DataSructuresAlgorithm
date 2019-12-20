@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\Chicken\\Chicken\\Chicken.csproj": {}
+    "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\源代码\\Chicken\\Chicken\\Chicken.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\Chicken\\Chicken\\Chicken.csproj": {
+    "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\源代码\\Chicken\\Chicken\\Chicken.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\Chicken\\Chicken\\Chicken.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\源代码\\Chicken\\Chicken\\Chicken.csproj",
         "projectName": "Chicken",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\Chicken\\Chicken\\Chicken.csproj",
+        "projectPath": "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\源代码\\Chicken\\Chicken\\Chicken.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\Chicken\\Chicken\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\source\\repos\\zy456-del\\DataSructuresAlgorithm\\源代码\\Chicken\\Chicken\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\源代码",
+    "\\源代码\\Chicken",
+    "\\源代码\\Chicken\\Chicken"
   ],
-  "SelectedNode": "\\源代码",
+  "SelectedNode": "\\源代码\\Chicken\\Chicken\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
