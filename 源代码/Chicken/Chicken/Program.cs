@@ -6,7 +6,7 @@ namespace Chicken
     {
         static void Main(string[] args)
         {
-            int go = 0;//公鸡的数量公鸡5元一只
+            int go = 0;//公鸡的数量公鸡5元一只。。。
 
             int mu = 0;//母鸡的数量母鸡3元一只
 
