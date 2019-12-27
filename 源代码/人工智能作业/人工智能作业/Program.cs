@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
-namespace CDS002.IEnumerableWithGenericsDemo
+namespace AI
 {
     /// <summary>
     /// 对一个普通的文本文件，检索指定的关键词在文件中的数量
@@ -17,6 +18,7 @@ namespace CDS002.IEnumerableWithGenericsDemo
             var keyString = "人工智能";
             TestReadingFile(keyString);
             Console.WriteLine("---");
+
             TestStreamReaderEnumerable(keyString);
 
             Console.ReadKey();
@@ -26,36 +28,41 @@ namespace CDS002.IEnumerableWithGenericsDemo
         /// 不使用自定义的迭代子检索指定的文本文件中，包含指定字符串的个数的方法
         /// </summary>
         /// <param name="keyString"></param>
-        public static void TestReadingFile(string keyString)
+        static void TestReadingFile(string key)
         {
             var memoryBefore = GC.GetTotalMemory(true);
             StreamReader sr;
             try
             {
-                sr = File.OpenText("D:\\temp\\tempFile.txt");
+                sr = File.OpenText("d:\\temp\\tempFile.txt");
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine(@"这个例子需要一个名为 D:\temp\tempFile.txt 的文件。");
+                Console.WriteLine(@"这个例子需要一个名为 tempFile.txt 的文件。");
                 return;
             }
-            var fileContents = new List<string>(); // 将文本内容添加到一个 List<string> 变量
-            while (!sr.EndOfStream)
+            var result = new List<string>();
+            string errorChar = "。！";
+            Regex regex = new Regex(string.Format("{0}[^{1}]*", key, key.Substring(0, 1) + errorChar));
+            Console.WriteLine("--------------------------");
+            Console.WriteLine(string.Format("“{0}”已找到{1}个结果：", key, regex.Matches(sr.ReadToEnd()).Count));
+            Console.WriteLine("--------------------------");
+            string lineString = "";
+            int lineIndex = 0;
+            sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            while (!string.IsNullOrEmpty((lineString = sr.ReadLine())))
             {
-                fileContents.Add(sr.ReadLine());
+                lineIndex++;
+                int searchIndex = 0;
+                foreach (var item in regex.Matches(lineString))
+                {
+                    var regexResult = item.ToString();
+                    searchIndex = lineString.IndexOf(key, searchIndex) + 1;
+                    result.Add(regexResult);
+                    Console.WriteLine("第" + lineIndex + "行，第" + searchIndex + "个字母开始：" + regexResult);
+
+                }
             }
-
-            // 检索目标文本（字符串）
-            var stringsFound =
-                from line in fileContents
-                where line.Contains(keyString)
-                select line;
-
-            sr.Close();
-            Console.WriteLine("数量：" + stringsFound.Count());
-
-            var memoryAfter = GC.GetTotalMemory(false); // 检查不使用迭代子并将结果输出到控制台之后的内存用量.
-            Console.WriteLine("不使用 Iterator 的内存用量 = \t" + string.Format(((memoryAfter - memoryBefore) / 1000).ToString(), "n") + "kb");
         }
 
         /// <summary>
@@ -70,10 +77,19 @@ namespace CDS002.IEnumerableWithGenericsDemo
             try
             {
                 stringsFound =
-                      from line in new StreamReaderEnumerable(@"D:\temp\tempFile.txt")
+                      from line in new StreamReaderEnumerable(@"d:\temp\tempFile.txt")
                       where line.Contains(keyString)
                       select line;
+
+                //Console.WriteLine("文件名：tempFile.txt");
+                //Console.WriteLine("关键词："+keyString);
                 Console.WriteLine("数量：" + stringsFound.Count());
+                StreamReaderEnumerable AlList = new StreamReaderEnumerable(stringsFound.ToString());
+                //foreach (StreamReaderEnumerable p in AlList)
+                // {
+                //     Console.WriteLine()
+                // }
+                //Console.WriteLine("数量：" + stringsFound);
             }
             catch (FileNotFoundException)
             {
