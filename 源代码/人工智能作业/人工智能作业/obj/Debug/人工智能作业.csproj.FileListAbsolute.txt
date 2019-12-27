@@ -1,0 +1,6 @@
+D:\算法\源代码\人工智能作业\人工智能作业\bin\Debug\人工智能作业.exe.config
+D:\算法\源代码\人工智能作业\人工智能作业\bin\Debug\人工智能作业.exe
+D:\算法\源代码\人工智能作业\人工智能作业\bin\Debug\人工智能作业.pdb
+D:\算法\源代码\人工智能作业\人工智能作业\obj\Debug\人工智能作业.csprojResolveAssemblyReference.cache
+D:\算法\源代码\人工智能作业\人工智能作业\obj\Debug\人工智能作业.exe
+D:\算法\源代码\人工智能作业\人工智能作业\obj\Debug\人工智能作业.pdb

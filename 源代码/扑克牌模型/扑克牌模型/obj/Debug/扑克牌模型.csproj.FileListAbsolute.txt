@@ -1,0 +1,6 @@
+D:\算法\源代码\扑克牌模型\扑克牌模型\bin\Debug\扑克牌模型.exe.config
+D:\算法\源代码\扑克牌模型\扑克牌模型\bin\Debug\扑克牌模型.exe
+D:\算法\源代码\扑克牌模型\扑克牌模型\bin\Debug\扑克牌模型.pdb
+D:\算法\源代码\扑克牌模型\扑克牌模型\obj\Debug\扑克牌模型.exe
+D:\算法\源代码\扑克牌模型\扑克牌模型\obj\Debug\扑克牌模型.pdb
+D:\算法\源代码\扑克牌模型\扑克牌模型\obj\Debug\扑克牌模型.csprojResolveAssemblyReference.cache
