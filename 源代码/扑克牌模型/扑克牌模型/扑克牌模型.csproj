@@ -45,9 +45,6 @@
   <ItemGroup>
     <Compile Include="Box.cs" />
     <Compile Include="BoxCollection.cs" />
-    <Compile Include="BoxEnumerator.cs" />
-    <Compile Include="BoxSameDimensions.cs" />
-    <Compile Include="BoxSameVolume.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,80 +1,101 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using 扑克牌模型;
 
-namespace CDS003.ICollectionWithGenericsDemo
+namespace Poker
 {
-    /// <summary>
-    /// 通过实现 ICollection<T> 接口来创建一个定制类盒子（Box）对象的集合以及一些处理方法；
-    /// 相等性：长宽高都相等的情况下是同一个盒子/体积相等的情况下是一个盒子；
-    /// 存在性：在 BoxCollection 类实现 Contains 方法，用于检查某个尺寸的盒子是否在集合中。
-    /// </summary>
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            // 定义一个盒子的集合，并向其中添加一下盒子对象
-            var bxList = new BoxCollection();
-            bxList.Add(new Box(10, 4, 6));
-            bxList.Add(new Box(4, 6, 10));
-            bxList.Add(new Box(6, 10, 4));
-            bxList.Add(new Box(12, 8, 10));
+            int q = 0;
 
-            // 相同维度的盒子不允许加入
-            bxList.Add(new Box(10, 4, 6));
+            Console.WriteLine("生成扑克");
+            List<brand> a = RandomLicensing();
+            Console.WriteLine("开始发牌...");
 
-            // 检查移除盒子的方法
-            Display(bxList);
-            Console.WriteLine("移除 6x10x4");
-            bxList.Remove(new Box(6, 10, 4));
-            Display(bxList);
-            // 移除的另外一些实现
-            bxList.Remove(bxList[0]);
-            bxList.Remove(bxList.FirstOrDefault(x => x.Length == 6));
-            Display(bxList);
 
-            // 检查包含盒子的方法，该方法使用长宽高直接进行比较
-            var BoxCheck = new Box(8, 12, 10);
-            Console.WriteLine("按照长宽高三维符合性条件，盒子{0}x{1}x{2}结果： {3}",
-                BoxCheck.Height.ToString(), BoxCheck.Length.ToString(),
-                BoxCheck.Width.ToString(), bxList.Contains(BoxCheck).ToString());
-
-            // 检查重载的 Contains 方法，该方法使用体积来做比较
-            Console.WriteLine("按照体积符合性条件，盒子{0}x{1}x{2}结果： {3}",
-                BoxCheck.Height.ToString(), BoxCheck.Length.ToString(),
-                BoxCheck.Width.ToString(), bxList.Contains(BoxCheck,
-                new BoxSameVolume()).ToString());
-
-            Console.ReadKey();
-        }
-
-        public static void Display(BoxCollection bxList)
-        {
-            Console.WriteLine("\n高\t长\t宽\t哈希码");
-            foreach (Box bx in bxList)
+            //随机发牌系统
+            for (int i = 0; i < a.Count(); i++)
             {
-                Console.WriteLine("{0}\t{1}\t{2}\t{3}",
-                    bx.Height.ToString(), bx.Length.ToString(),
-                    bx.Width.ToString(), bx.GetHashCode().ToString());
+                int c = i + 1;
+                Console.Write(c + ":");
+                Console.Write(a[i].Type + a[i].Name);
+                Console.Write("牌值:" + a[i].value());
+                Console.WriteLine();
+            }
+         //   Console.WriteLine("-------------------------------------------");
+
+            Console.WriteLine("开始发牌...");
+            List<Add> listUser = new List<Add>() {  //牌手进场
+            new Add("玩家1"),
+            new Add("玩家2"),
+            new Add("玩家3"),
+            new Add("玩家4")
+              };
+            //分配牌
+            for (int i = 0; i < a.Count; i++)
+            {
+                listUser[q].c(a[i]);
+                q++;
+                if (q == 4)
+                {
+                    q = 0;
+                }
             }
 
-            // 直接使用枚举子便利处理的结果
-            //IEnumerator enumerator = bxList.GetEnumerator();
-            //Console.WriteLine("\n高\t长\t宽\t哈希码");
-            //while (enumerator.MoveNext())
-            //{
-            //    var b = (Box)enumerator.Current;
-            //    Console.WriteLine("{0}\t{1}\t{2}\t{3}",
-            //    b.Height.ToString(), b.Length.ToString(),
-            //    b.Width.ToString(), b.GetHashCode().ToString());
-            //}
 
-            Console.WriteLine();
+
+
+            for (int i = 0; i < listUser.Count; i++)  //四个玩家
+            {
+                listUser[i].sort();
+            }
+
+            foreach (var item in listUser)
+            {
+                item.Introduce();
+            }
+
+            Console.Read();
+
+        }
+        //扑克牌生成
+        static List<brand> RandomLicensing()
+        {
+            List<brand> myCards = new List<brand>();//扑克牌集合
+            string[] strType = { "红桃", "黑桃", "梅花", "方块" };
+            string[] strNumber = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+            brand[] OtherCard = { new brand("大王", ""), new brand("小王", "") };
+
+            myCards.Add(OtherCard[0]);
+            myCards.Add(OtherCard[1]);
+            for (int i = 0; i < strType.Length; i++)
+            {
+                for (int t = 0; t < strNumber.Length; t++)
+                {
+                    brand p = new brand(strType[i], strNumber[t]);
+                    myCards.Add(p);
+                }
+            }
+
+            //洗牌
+            List<brand> stackCard = new List<brand>();
+            Random r = new Random(); //随机数生成器
+
+            while (myCards.Count > 0) //元素转移，转移后移除扑克，新集合中见
+            {
+                int iIndex = r.Next(0, myCards.Count);
+                stackCard.Add(myCards[iIndex]);
+                myCards.RemoveAt(iIndex);
+            }
+
+            return stackCard;
+
+
+
         }
     }
-
-    }
+}

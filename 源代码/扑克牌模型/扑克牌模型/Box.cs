@@ -4,37 +4,84 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace 扑克牌模型
-/// <summary>
-/// 课程范例所需要的模型：盒子（立方体）
-/// </summary
+namespace Poker
 {
-    public  class Box:IEquatable<Box>
+    public class brand
     {
-        public Box(int h, int l, int w)
-        {
-            this.Height = h;
-            this.Length = l;
-            this.Width = w;
-        }
-        public int Height { get; set; }
-        public int Length { get; set; }
-        public int Width { get; set; }
+        public string Type { get; set; }
+        public string Name { get; set; }
 
-        // 使用 BoxSameDimensions 定义相等性
-        public bool Equals(Box other)
+        public int Cardvalue { get; set; }
+
+        public brand()
+        { }
+
+
+        public brand(string type, string name)
         {
-            return new BoxSameDimensions().Equals(this, other) ? true : false;
+            this.Type = type;
+            this.Name = name;
+            Cardvalue = value();
+        }
+        //传入数值更新
+        public void update(brand a)
+        {
+            this.Type = a.Type;
+            this.Name = a.Name;
+            this.Cardvalue = a.Cardvalue;
         }
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
 
-        public override int GetHashCode()
+        //牌值计算
+        public int value()
         {
-            return base.GetHashCode();
+            int a = 0;
+
+            switch (Type)
+            {
+                case "方块":
+                    a = 0;
+                    break;
+                case "梅花":
+                    a = 13;
+                    break;
+                case "红桃":
+                    a = 26;
+                    break;
+                case "黑桃":
+                    a = 39;
+                    break;
+                case "小王":
+                    a = 53;
+                    break;
+                case "大王":
+                    a = 54;
+                    break;
+            }
+
+            switch (Name)
+            {
+                case "A":
+                    a += 1;
+                    break;
+                case "J":
+                    a += 11;
+                    break;
+                case "Q":
+                    a += 12;
+                    break;
+                case "K":
+                    a += 13;
+                    break;
+
+                default:
+                    if (Name != "")
+                    {
+                        a += int.Parse(Name);
+                    }
+                    break;
+            }
+            return a;
         }
     }
 }
